@@ -16,7 +16,7 @@ const Hero = () => {
       </div>
 
       {/* Content Container */}
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 py-20 relative z-10">
         <div className="max-w-3xl">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">

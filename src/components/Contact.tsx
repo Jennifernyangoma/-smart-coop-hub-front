@@ -11,8 +11,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-24 bg-gray-50">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-900">
