@@ -28,7 +28,7 @@ const About = () => {
           <div className="space-y-4">
             {features.map((feature, index) => (
               <div key={index} className="flex items-start gap-3">
-                <CheckCircle2 className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle2 className="h-6 w-6 text-[#22C55E] flex-shrink-0 mt-1" />
                 <p className="text-lg text-blue-900">{feature}</p>
               </div>
             ))}

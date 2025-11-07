@@ -19,20 +19,20 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-blue-900 mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#home" className="text-gray-600 hover:text-green-600">Home</a></li>
-              <li><a href="#about" className="text-gray-600 hover:text-green-600">About</a></li>
-              <li><a href="#features" className="text-gray-600 hover:text-green-600">Features</a></li>
-              <li><a href="#services" className="text-gray-600 hover:text-green-600">Services</a></li>
+              <li><a href="#home" className="text-gray-600 hover:text-[#22C55E]">Home</a></li>
+              <li><a href="#about" className="text-gray-600 hover:text-[#22C55E]">About</a></li>
+              <li><a href="#features" className="text-gray-600 hover:text-[#22C55E]">Features</a></li>
+              <li><a href="#services" className="text-gray-600 hover:text-[#22C55E]">Services</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold text-blue-900 mb-4">Resources</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-600 hover:text-green-600">Documentation</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-green-600">Support</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-green-600">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-green-600">Terms of Service</a></li>
+              <li><a href="#" className="text-gray-600 hover:text-[#22C55E]">Documentation</a></li>
+              <li><a href="#" className="text-gray-600 hover:text-[#22C55E]">Support</a></li>
+              <li><a href="#" className="text-gray-600 hover:text-[#22C55E]">Privacy Policy</a></li>
+              <li><a href="#" className="text-gray-600 hover:text-[#22C55E]">Terms of Service</a></li>
             </ul>
           </div>
 

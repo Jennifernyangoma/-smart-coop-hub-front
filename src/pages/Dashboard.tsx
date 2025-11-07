@@ -1,0 +1,289 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  LayoutDashboard, 
+  CheckCircle, 
+  Users, 
+  Bell, 
+  CreditCard, 
+  Settings, 
+  LogOut,
+  TrendingUp,
+  Building2,
+  ShoppingCart,
+  DollarSign,
+  Search,
+  MoreVertical,
+  Eye,
+  Ban,
+  Trash2
+} from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "@/assets/logo.png";
+
+const Dashboard = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    // Handle sign out logic
+    navigate("/login");
+  };
+
+  const stats = [
+    {
+      title: "Total Cooperatives",
+      value: "8",
+      description: "3 active, 3 pending, 2 rejected",
+      change: "+12% from last month",
+      icon: Building2,
+      color: "text-blue-600"
+    },
+    {
+      title: "Total Members",
+      value: "5",
+      description: "Across all cooperatives",
+      change: "+8% from last month",
+      icon: Users,
+      color: "text-green-600"
+    },
+    {
+      title: "Platform Revenue",
+      value: "4.3M RWF",
+      description: "5 total transactions",
+      change: "+23% from last month",
+      icon: DollarSign,
+      color: "text-purple-600"
+    },
+    {
+      title: "Marketplace Orders",
+      value: "2",
+      description: "Total orders processed",
+      change: "+15% from last month",
+      icon: ShoppingCart,
+      color: "text-orange-600"
+    }
+  ];
+
+  const menuItems = [
+    { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard", active: true },
+    { icon: CheckCircle, label: "Approvals", path: "/approvals", badge: "3" },
+    { icon: Building2, label: "Cooperative", path: "/cooperative" },
+    { icon: Bell, label: "Announcements", path: "/announcements" },
+    { icon: CreditCard, label: "Payments", path: "/payments" },
+  ];
+
+  return (
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white border-r border-gray-200 flex flex-col">
+        {/* Logo */}
+        <div className="p-6 border-b border-gray-200">
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logo} alt="Smart Cooperative Hub" className="h-10 w-10 rounded" />
+            <div>
+              <h1 className="text-lg font-bold text-blue-900">Smart Cooperative Hub</h1>
+            </div>
+          </Link>
+        </div>
+
+        {/* User Profile */}
+        <div className="p-4 border-b border-gray-200">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-full bg-[#22C55E] flex items-center justify-center text-white font-bold">
+              AU
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-gray-900">Admin User</p>
+              <p className="text-xs text-gray-500">Super Admin</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Menu */}
+        <nav className="flex-1 p-4 space-y-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase mb-3">Main Menu</p>
+          {menuItems.map((item, index) => (
+            <Link
+              key={index}
+              to={item.path}
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
+                item.active
+                  ? "bg-[#22C55E] text-white"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              <item.icon className="h-5 w-5" />
+              <span className="flex-1 font-medium">{item.label}</span>
+              {item.badge && (
+                <span className="bg-blue-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                  {item.badge}
+                </span>
+              )}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Settings Section */}
+        <div className="p-4 border-t border-gray-200 space-y-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase mb-3">Settings</p>
+          <Link
+            to="/settings"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+          >
+            <Settings className="h-5 w-5" />
+            <span className="font-medium">Settings</span>
+          </Link>
+          <button
+            onClick={handleSignOut}
+            className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors"
+          >
+            <LogOut className="h-5 w-5" />
+            <span className="font-medium">Sign Out</span>
+          </button>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-1 overflow-y-auto">
+        {/* Header */}
+        <header className="bg-white border-b border-gray-200 p-6">
+          <div className="mb-4">
+            <h1 className="text-2xl font-bold text-gray-900">Super Admin Dashboard</h1>
+            <p className="text-gray-600">Monitor and manage the entire Smart Cooperative Hub platform</p>
+          </div>
+          
+          {/* Quick Actions */}
+          <div className="flex gap-3">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+              <span className="bg-white text-blue-600 rounded-full px-2 py-0.5 text-xs font-bold mr-2">3</span>
+              Pending Approvals
+            </Button>
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+              Send Announcement
+            </Button>
+            <Button className="bg-[#22C55E] hover:bg-[#16A34A] text-white">
+              Register Cooperative
+            </Button>
+          </div>
+        </header>
+
+        {/* Stats Grid */}
+        <div className="p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {stats.map((stat, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className={`p-3 rounded-lg bg-gray-50 ${stat.color}`}>
+                      <stat.icon className="h-6 w-6" />
+                    </div>
+                    <TrendingUp className="h-4 w-4 text-green-600" />
+                  </div>
+                  <h3 className="text-sm font-medium text-gray-600 mb-2">{stat.title}</h3>
+                  <p className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</p>
+                  <p className="text-xs text-gray-500 mb-2">{stat.description}</p>
+                  <p className="text-xs text-green-600 font-medium">{stat.change}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Cooperative Management */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl">Cooperative Management</CardTitle>
+              <p className="text-sm text-gray-600">View, approve, suspend, or delete cooperatives</p>
+            </CardHeader>
+            <CardContent>
+              {/* Search Bar */}
+              <div className="mb-6">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <Input
+                    type="text"
+                    placeholder="Search cooperatives..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 h-11"
+                  />
+                </div>
+              </div>
+
+              {/* Cooperative Card */}
+              <div className="border border-gray-200 rounded-lg p-6 bg-white hover:shadow-md transition-shadow">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="text-lg font-bold text-gray-900">Terimbere Coffee Cooperative</h3>
+                      <span className="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
+                        active
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">Type: Agriculture - Coffee</p>
+                    <p className="text-sm text-gray-600 mb-1">📍 Huye District, Southern Province</p>
+                    <p className="text-sm text-gray-600">👥 156 members</p>
+                  </div>
+                  <button className="p-2 hover:bg-gray-100 rounded-lg">
+                    <MoreVertical className="h-5 w-5 text-gray-500" />
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                  <div>
+                    <p className="text-gray-500">RCA Number</p>
+                    <p className="font-semibold text-gray-900">RCA/2020/0145</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">Location</p>
+                    <p className="font-semibold text-gray-900">Southern Province</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">District</p>
+                    <p className="font-semibold text-gray-900">Huye</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">Sector</p>
+                    <p className="font-semibold text-gray-900">Tumba</p>
+                  </div>
+                </div>
+
+                <p className="text-sm text-gray-600 mb-4">
+                  Est. 2020-03-15 • A cooperative of coffee farmers dedicated to producing high-quality specialty coffee for export and local markets.
+                </p>
+
+                <div className="mb-4 pb-4 border-b border-gray-200">
+                  <p className="text-sm text-gray-600">
+                    <strong>Chairperson:</strong> Jean Baptiste Mugabo •{" "}
+                    <strong>Treasurer:</strong> Alice Mukamana •{" "}
+                    <strong>Secretary:</strong> Patrick Habimana
+                  </p>
+                </div>
+
+                <div className="flex gap-3">
+                  <Button variant="outline" className="flex-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+                    <Eye className="h-4 w-4 mr-2" />
+                    View
+                  </Button>
+                  <Button className="flex-1 bg-white text-blue-900 border-2 border-blue-900 hover:bg-blue-900 hover:text-white">
+                    <Ban className="h-4 w-4 mr-2" />
+                    Suspend
+                  </Button>
+                  <Button variant="outline" className="flex-1 border-red-600 text-red-600 hover:bg-red-600 hover:text-white">
+                    <Trash2 className="h-4 w-4 mr-2" />
+                    Delete
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default Dashboard;
+

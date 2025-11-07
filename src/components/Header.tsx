@@ -35,6 +35,9 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
+            <Link to="/" onClick={handleNavClick} className={`font-medium pb-1 transition-all ${isActive("/") ? "text-blue-900 border-b-2 border-blue-900" : "text-gray-600 hover:text-blue-900 hover:border-b-2 hover:border-blue-900"}`}>
+              Home
+            </Link>
             <Link to="/about" onClick={handleNavClick} className={`font-medium pb-1 transition-all ${isActive("/about") ? "text-blue-900 border-b-2 border-blue-900" : "text-gray-600 hover:text-blue-900 hover:border-b-2 hover:border-blue-900"}`}>
               About
             </Link>
@@ -48,13 +51,13 @@ const Header = () => {
               Contact
             </Link>
             <Link to="/login">
-              <Button variant="outline" className="gap-2">
+              <Button className="gap-2 bg-[#22C55E] hover:bg-[#16A34A] text-white">
                 <LogIn className="h-4 w-4" />
                 Login
               </Button>
             </Link>
             <Link to="/signup">
-              <Button className="bg-green-600 hover:bg-green-700 text-white">Get Started</Button>
+              <Button className="bg-[#22C55E] hover:bg-[#16A34A] text-white">Get Started</Button>
             </Link>
           </nav>
 
@@ -71,6 +74,9 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden py-4 space-y-4 border-t border-gray-200">
+            <Link to="/" onClick={handleNavClick} className={`block w-full text-left font-medium pb-2 border-b-2 transition-all ${isActive("/") ? "text-blue-900 border-blue-900" : "text-gray-600 border-transparent hover:text-blue-900 hover:border-blue-900"}`}>
+              Home
+            </Link>
             <Link to="/about" onClick={handleNavClick} className={`block w-full text-left font-medium pb-2 border-b-2 transition-all ${isActive("/about") ? "text-blue-900 border-blue-900" : "text-gray-600 border-transparent hover:text-blue-900 hover:border-blue-900"}`}>
               About
             </Link>
@@ -84,13 +90,13 @@ const Header = () => {
               Contact
             </Link>
             <Link to="/login" className="w-full">
-              <Button variant="outline" className="w-full gap-2">
+              <Button className="w-full gap-2 bg-[#22C55E] hover:bg-[#16A34A] text-white">
                 <LogIn className="h-4 w-4" />
                 Login
               </Button>
             </Link>
             <Link to="/signup" className="w-full">
-              <Button className="w-full bg-green-600 hover:bg-green-700 text-white">Get Started</Button>
+              <Button className="w-full bg-[#22C55E] hover:bg-[#16A34A] text-white">Get Started</Button>
             </Link>
           </nav>
         )}

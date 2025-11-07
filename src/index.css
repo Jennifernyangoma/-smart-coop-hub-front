@@ -33,6 +33,10 @@
     --ring: 142 76% 36%;
 
     --radius: 0.5rem;
+
+    /* Custom logo green */
+    --logo-green: 84 82% 48%;
+    --logo-green-hover: 84 82% 42%;
   }
 }
 

@@ -82,7 +82,7 @@ const Contact = () => {
                   </label>
                   <Textarea id="message" placeholder="Your message..." rows={4} required />
                 </div>
-                <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white">
+                <Button type="submit" className="w-full bg-[#22C55E] hover:bg-[#16A34A] text-white">
                   Send Message
                 </Button>
               </form>
